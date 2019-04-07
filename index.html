@@ -1,0 +1,75 @@
+    
+<!doctype html>
+<html lang="zh-tw">
+<head>
+<title>肯德基 薄皮嫩雞 去哪了？ Where is the KFC Original Recipe&reg;?</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="canonical" href="https://assanges.github.io/tw-kfc-original-recipe/">
+<meta name="description" content="肯德基上校薄皮嫩雞供應分店 非官方懶人包">
+<meta name="keywords" content="肯德基, 上校薄皮嫩雞 ,薄皮嫩雞, 家鄉雞, KFC, KFC 台灣">
+<meta name="description" content="肯德基上校薄皮嫩雞供應分店 非官方懶人包">
+<meta name="author" content="@assanges">
+<meta property="og:title" content="肯德基 薄皮嫩雞 去哪了？">
+<meta property="og:image" content="./G15022_KFC_07-OR-plate-8-piece-Enviro_0208_RGB-copy.jpg">
+<meta property="og:description" content="當薄脆雞成為事實，恢復薄皮嫩雞就是義務">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.pink-indigo.min.css" />
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>
+    function load_shops() {
+        $.ajax({
+            url: "./shopsLocation.json",
+            dataType: 'json',
+            success: function (result) {
+                var tbody = $('#shoptable > tbody');
+                $.each(result, function (i, shop) {
+                    tbody.append($('<tr>').append(
+                        $('<td>').addClass('mdl-data-table__cell--non-numeric').text(shop.shopArea),
+                        $('<td>').addClass('mdl-data-table__cell--non-numeric').text(shop.shopName),
+                        $('<td>').addClass('mdl-data-table__cell--non-numeric').text(shop.shopCity + shop.shopDist + shop.shopAddr),
+                        $('<td>').text(shop.shopHour),
+                        $('<td>').append($('<a>').text(shop.shopTel).attr('href', 'tel:' + shop.shopTel))
+                    ));});
+                }
+            });
+        }
+
+    function init() {
+        load_shops();
+    }
+    $(init);
+</script>
+</head>
+<body>
+    <div class="mdl-card" style="width:100%;">
+        <div class="mdl-card__title mdl-color-text--grey-800" style="height: 460px; background: url('./G15022_KFC_07-OR-plate-8-piece-Enviro_0208_RGB-copy.jpg') center / cover;">
+            <h2 class="mdl-card__title-text" id="tt1">肯德基 薄皮嫩雞 去哪了？<br>Where is the KFC Original Recipe&reg;?</h2>
+            <div class="mdl-tooltip" data-mdl-for="tt1">&copy; Kentucky Fried Chicken 2019</div>
+        </div>
+        <table id="shoptable" class="mdl-data-table mdl-js-data-table">
+            <thead>
+                <th class='mdl-data-table__cell--non-numeric'>區域 Area</th>
+                    <th class='mdl-data-table__cell--non-numeric'>店名 Branch</th>
+                    <th class='mdl-data-table__cell--non-numeric'>地址 Address</th>
+                    <th>營業時間 Hours</th>
+                    <th>電話 Tel.</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer--left-section">
+            <p>KFC is a trademark of KFC CORPORATION. This site is not affiliated with KFC, nor its responsible for its availability or content.<br>
+               However, this site endorse and recommends the KFC Original Recipe&reg; because its f**king delicious.</p>
+        </div>
+        <div class="mdl-mini-footer--right-section"><ul class="mdl-mini-footer--link-list">
+                <li><a href="https://www.kfcclub.com.tw/">KFC 台灣</a></li> 
+                <li><a href="https://www.kfcclub.com.tw/tw/Brand/NewsDetail-37.html">新聞稿原檔</a></li>
+                <li>當薄脆雞成為事實，恢復薄皮嫩雞就是義務</li>
+            </ul></div>
+    </footer>
+</body>
+</html>
